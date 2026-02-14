@@ -1,0 +1,47 @@
+{
+  "name": "xx",
+  "version": "0.1.0",
+  "description": "Fast TypeScript runner. tsx alternative powered by Rolldown/Oxc.",
+  "keywords": [
+    "typescript",
+    "runner",
+    "node",
+    "esm",
+    "cjs",
+    "loader",
+    "watch",
+    "rolldown",
+    "oxc"
+  ],
+  "license": "MIT",
+  "author": "Brayden",
+  "type": "module",
+  "bin": {
+    "xx": "dist/cli.mjs"
+  },
+  "main": "./dist/loader.mjs",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./dist/loader.mjs",
+    "./loader": "./dist/loader.mjs",
+    "./cjs": "./dist/cjs/index.cjs",
+    "./esm": "./dist/esm/index.mjs",
+    "./cli": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node --strip-types --experimental-transform-types ./scripts/build.ts",
+    "dev": "node --strip-types --experimental-transform-types src/cli.ts",
+    "test": "node --strip-types --experimental-transform-types --test tests/index.ts"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "dependencies": {
+    "get-tsconfig": "^4.10.0",
+    "rolldown": "^1.0.0-rc.5",
+    "tsx": "^4.21.0"
+  }
+}

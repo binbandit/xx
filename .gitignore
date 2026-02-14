@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.tgz
+.DS_Store
+
+# generated benchmark fixtures
+bench/fixtures/05-many-modules/
+bench/results/
+
+# editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# os
+Thumbs.db
