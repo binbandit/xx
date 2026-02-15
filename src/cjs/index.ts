@@ -90,7 +90,7 @@ const originalResolveFilename = (Module as any)._resolveFilename;
 
   // directory/index
   for (const tsExt of tsExtensions) {
-    try { return originalResolveFilename.call(this, request + '/index' + tsExt, parent, isMain, options); } catch {}
+    try { return originalResolveFilename.call(this, path.join(request, 'index' + tsExt), parent, isMain, options); } catch {}
   }
 
   return originalResolveFilename.call(this, request, parent, isMain, options);

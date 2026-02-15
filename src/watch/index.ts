@@ -97,12 +97,14 @@ export function startWatch(options: WatchOptions): void {
   }
 
   function shouldIgnore(filename: string): boolean {
+    const normalized = filename.replace(/\\/g, '/');
     for (const pattern of exclude) {
-      if (filename.includes(pattern) || filename.includes(`/${pattern}/`) || filename.startsWith(pattern)) {
+      if (normalized.includes(`/${pattern}/`) || normalized.startsWith(pattern + '/') || normalized === pattern) {
         return true;
       }
     }
-    if (filename.startsWith('.') && filename !== '.' && filename !== '..') {
+    const basename = path.basename(normalized);
+    if (basename.startsWith('.') && basename !== '.' && basename !== '..') {
       return true;
     }
     return false;

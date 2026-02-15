@@ -6,6 +6,7 @@
 import { spawn, type ChildProcess } from 'node:child_process';
 import { constants as osConstants } from 'node:os';
 import { pathToFileURL, fileURLToPath } from 'node:url';
+import path from 'node:path';
 import fs from 'node:fs';
 import { transformSync } from 'rolldown/utils';
 import { startWatch } from './watch/index.ts';
@@ -14,9 +15,9 @@ const VERSION = '0.1.0';
 
 function resolveLoaderPath(): string {
   const dir = fileURLToPath(new URL('.', import.meta.url));
-  const mjsPath = dir + 'loader.mjs';
+  const mjsPath = path.join(dir, 'loader.mjs');
   if (fs.existsSync(mjsPath)) return mjsPath;
-  const tsPath = dir + 'loader.ts';
+  const tsPath = path.join(dir, 'loader.ts');
   if (fs.existsSync(tsPath)) return tsPath;
   return mjsPath;
 }
