@@ -7,7 +7,7 @@ import { spawn, type ChildProcess } from 'node:child_process';
 import { constants as osConstants } from 'node:os';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import fs from 'node:fs';
-import { transformSync } from 'rolldown/experimental';
+import { transformSync } from 'rolldown/utils';
 import { startWatch } from './watch/index.ts';
 
 const VERSION = '0.1.0';

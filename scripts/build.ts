@@ -1,5 +1,5 @@
 // builds xx — bundles src/ into dist/ using rolldown
-// uses rolldown/experimental (not rolldown/experimental) to avoid pulling in the full bundler at runtime
+// uses rolldown/utils (not rolldown/experimental) to avoid pulling in the full bundler at runtime
 
 import { build } from 'rolldown';
 import path from 'node:path';
@@ -27,7 +27,7 @@ await build({
   },
   platform: 'node',
   external: [
-    'rolldown/experimental',
+    'rolldown/utils',
     'get-tsconfig',
     /^node:/,
   ],

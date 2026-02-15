@@ -1,4 +1,4 @@
-import { transformSync } from 'rolldown/experimental';
+import { transformSync } from 'rolldown/utils';
 import type { TransformResult } from './types.ts';
 
 const TS_EXTENSIONS = new Set(['.ts', '.tsx', '.mts', '.cts']);
