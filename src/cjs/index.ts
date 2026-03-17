@@ -31,7 +31,7 @@ let pathsMatcher: ((s: string) => string[]) | null | undefined;
 
 function getPathsMatcher(): ((s: string) => string[]) | null {
   if (pathsMatcher !== undefined) return pathsMatcher;
-  const tsconfigPath = process.env.STX_TSCONFIG_PATH;
+  const tsconfigPath = process.env.TSOX_TSCONFIG_PATH;
   if (!tsconfigPath) {
     pathsMatcher = null;
     return null;

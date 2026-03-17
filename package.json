@@ -1,5 +1,5 @@
 {
-  "name": "stx",
+  "name": "tsox",
   "version": "0.1.0",
   "description": "Fast TypeScript runner. tsx alternative powered by Rolldown/Oxc.",
   "keywords": [
@@ -17,7 +17,7 @@
   "author": "Brayden",
   "type": "module",
   "bin": {
-    "stx": "dist/cli.mjs"
+    "tsox": "dist/cli.mjs"
   },
   "main": "./dist/loader.mjs",
   "exports": {

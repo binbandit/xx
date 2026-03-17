@@ -17,7 +17,7 @@ let pathsMatcher: ((s: string) => string[]) | null | undefined;
 
 function getPathsMatcher(): ((s: string) => string[]) | null {
   if (pathsMatcher !== undefined) return pathsMatcher;
-  const tsconfigPath = process.env.STX_TSCONFIG_PATH;
+  const tsconfigPath = process.env.TSOX_TSCONFIG_PATH;
   if (!tsconfigPath) {
     pathsMatcher = null;
     return null;
@@ -92,7 +92,7 @@ export async function resolve(
     try { return await nextResolve(specifier + '/index' + ext, context); } catch {}
   }
 
-  throw new Error(`[stx] Cannot resolve '${specifier}'${context.parentURL ? ` from '${context.parentURL}'` : ''}`);
+  throw new Error(`[tsox] Cannot resolve '${specifier}'${context.parentURL ? ` from '${context.parentURL}'` : ''}`);
 }
 
 export async function load(

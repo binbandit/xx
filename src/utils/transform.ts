@@ -28,7 +28,7 @@ export function transformCode(
 
   if (result.errors && result.errors.length > 0) {
     const err = result.errors[0];
-    throw new Error(`[stx] Transform error in ${filename}: ${typeof err === 'string' ? err : JSON.stringify(err)}`);
+    throw new Error(`[tsox] Transform error in ${filename}: ${typeof err === 'string' ? err : JSON.stringify(err)}`);
   }
 
   return {

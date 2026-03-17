@@ -1,4 +1,4 @@
-// builds stx — bundles src/ into dist/ using rolldown
+// builds tsox — bundles src/ into dist/ using rolldown
 // uses rolldown/utils (not rolldown/experimental) to avoid pulling in the full bundler at runtime
 
 import { build } from 'rolldown';

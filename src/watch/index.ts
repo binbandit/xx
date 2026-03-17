@@ -57,8 +57,8 @@ export function startWatch(options: WatchOptions): void {
       stdio: 'inherit',
       env: {
         ...process.env,
-        ...(tsconfigPath ? { STX_TSCONFIG_PATH: tsconfigPath } : {}),
-        ...(noCache ? { STX_DISABLE_CACHE: '1' } : {}),
+        ...(tsconfigPath ? { TSOX_TSCONFIG_PATH: tsconfigPath } : {}),
+        ...(noCache ? { TSOX_DISABLE_CACHE: '1' } : {}),
       },
     });
 
@@ -168,11 +168,11 @@ export function startWatch(options: WatchOptions): void {
 
 function buildLoaderCode(tsconfigPath?: string, noCache?: boolean): string {
   const envLines: string[] = [];
-  if (tsconfigPath) envLines.push(`process.env.STX_TSCONFIG_PATH=${JSON.stringify(tsconfigPath)};`);
-  if (noCache) envLines.push(`process.env.STX_DISABLE_CACHE='1';`);
-  return `${envLines.join('')}import('stx/loader');`;
+  if (tsconfigPath) envLines.push(`process.env.TSOX_TSCONFIG_PATH=${JSON.stringify(tsconfigPath)};`);
+  if (noCache) envLines.push(`process.env.TSOX_DISABLE_CACHE='1';`);
+  return `${envLines.join('')}import('tsox/loader');`;
 }
 
 function logInfo(msg: string): void {
-  process.stderr.write(`\x1b[2m[\x1b[36mstx\x1b[0m\x1b[2m]\x1b[0m ${msg}\n`);
+  process.stderr.write(`\x1b[2m[\x1b[36mtsox\x1b[0m\x1b[2m]\x1b[0m ${msg}\n`);
 }

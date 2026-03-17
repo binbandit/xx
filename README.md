@@ -1,22 +1,22 @@
-# stx
+# tsox
 
 Fast TypeScript runner for Node.js. Like [tsx](https://github.com/privatenumber/tsx) but uses [Rolldown/Oxc](https://rolldown.rs) (Rust) instead of esbuild (Go) for transforms.
 
 ## Install
 
 ```bash
-pnpm add stx
+pnpm add tsox
 ```
 
 ## Usage
 
 ```bash
-stx file.ts                       # run a ts file
-stx watch server.ts               # watch mode
-stx -e "const x: number = 1"      # eval
-stx -p "1 + 2"                    # eval + print
-stx --test                        # node test runner w/ ts
-stx                               # repl
+tsox file.ts                       # run a ts file
+tsox watch server.ts               # watch mode
+tsox -e "const x: number = 1"      # eval
+tsox -p "1 + 2"                    # eval + print
+tsox --test                        # node test runner w/ ts
+tsox                               # repl
 ```
 
 All node flags pass through (`--env-file`, `--inspect`, etc).
@@ -26,7 +26,7 @@ All node flags pass through (`--env-file`, `--inspect`, etc).
 Skip the CLI overhead entirely:
 
 ```bash
-node --import stx/loader file.ts
+node --import tsox/loader file.ts
 ```
 
 ## Benchmarks
@@ -35,15 +35,15 @@ Measured with [hyperfine](https://github.com/sharkdp/hyperfine) on Node v25.6.1,
 
 **Hooks-only** (no CLI process, just the loader -- apples-to-apples transform comparison):
 
-| | tsx | stx | |
+| | tsx | tsox | |
 |---|--:|--:|---|
 | 1 file | 177ms | 126ms | 1.4x |
 | 5 modules | 193ms | 120ms | 1.6x |
 | 100 modules | 303ms | 148ms | **2.1x** |
 
-**E2E** (full `stx file.ts` vs `tsx file.ts`):
+**E2E** (full `tsox file.ts` vs `tsx file.ts`):
 
-| | tsx | stx | |
+| | tsx | tsox | |
 |---|--:|--:|---|
 | 1 file | 190ms | 153ms | 1.2x |
 | types-heavy | 208ms | 151ms | 1.4x |
